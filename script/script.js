@@ -1,71 +1,35 @@
-//Popup editar perfil
-const profileNameElement = document.querySelector(".profile__name");
-const profileAboutElement = document.querySelector(".profile__about");
+import {
+  initialCards,
+  profileName,
+  profileAboutElement,
+  profileName,
+  profileAbout
+  profileEditButton,
+  editPopupElement,
+  formElement,
+  nameInput,
+  aboutInput,
+  closeButtonPopup,
+  profileAddButton,
+  addImagePopupElement,
+  titleInput,
+  imageInput,
+  templateCard,
+  cardArea,
+  groupImage,
+  formCard,
+  popupImageOpen,
+  closeImage,
+  popupImageTitle,
+  popupImage,
+  initialProfileName,
+  initialProfileAbout,
+  overlayEdit,
+  overlayAdd
+  overlayImage
+} from "..utils.js";
 
-const profileName = profileNameElement.textContent;
-const profileAbout = profileAboutElement.textContent;
-
-const profileEditButton = document.querySelector(".profile__edit-button");
-const editPopupElement = document.querySelector(".popup");
-
-const formElement = document.querySelector(".popup__form");
-const nameInput = document.querySelector(".popup__input_name");
-const aboutInput = document.querySelector(".popup__input_about");
-const closeButtonPopup = document.querySelector(".popup__close-button");
-
-//Popup agregar imagenes
-const profileAddButton = document.querySelector(".profile__add-button");
-const addImagePopupElement = document.querySelector("#add-image-popup");
-const titleInput = document.querySelector(".popup__input_title");
-const imageInput = document.querySelector("#popup__input_image");
-
-//Template cards
-const templateCard = document.querySelector(".template-card");
-const cardArea = document.querySelector(".cards");
-
-const groupImage = document.getElementById("add-image-popup");
-const formCard = groupImage.querySelector(".popup__form");
-
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
-
-//Popup imagenes
-const popupImageOpen = document.querySelector("#popup_image-open");
-const closeImage = document.querySelector("#popup__close-image");
-const popupImageTitle = document.querySelector(".popup__image-title");
-const popupImage = document.querySelector(".popup__image");
-
-let initialProfileName = profileName;
-let initialProfileAbout = profileAbout;
-
-//Overlays
-const overlayEdit = document.querySelector("#popup-overlay-edit");
-const overlayAdd = document.querySelector("#popup-overlay-add");
-const overlayImage = document.querySelector("#popup-overlay-image");
+import class Card from "../Card.js";
 
 //Popup editar perfil
 function setPopupInput() {
