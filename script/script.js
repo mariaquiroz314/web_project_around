@@ -1,3 +1,5 @@
+import class Card from "../Card.js";
+
 import {
   initialCards,
   profileName,
@@ -29,7 +31,35 @@ import {
   overlayImage
 } from "..utils.js";
 
-import class Card from "../Card.js";
+const popupProfile = document.querySelector("#popup-profile");
+const popupCards = document.querySelector("#popup-add-card");
+const profileButton = document.querySelector(".#profile__button");
+const openCardForm = document.querySelector("#.profile__add-button");
+const profileName = document.querySelector("#.profile__name");
+const profileAbout = document.querySelector("#.profile__paragraph");
+const inputName = document.querySelector("#input-name");
+const inputAbout = document.querySelector("#input-about");
+const formProfile = document.querySelector("#form-profile");
+const formCards = document.querySelector("#form-addcard");
+const template = document.querySelector("#.template-card");
+const cardArea = document.querySelector("#.elements");
+
+initialCards.forEach(function (element) {
+  const newCard = new Card(element.name, element.link).generateCard();
+  cardArea.append(newCard);
+});
+
+function handleOpenProfile() {
+  popupProfile.classList.add("popup_show");
+}
+function handleCloseProfile() {
+  popupProfile.classList.remove("popup_show");
+}
+profileButton.addEventListener("click", handleOpenProfile);
+openCardForm.addEventListener("click", function() {
+  popupCards.classList.add("popup_show");
+});
+
 
 //Popup editar perfil
 function setPopupInput() {
@@ -169,4 +199,3 @@ overlayEdit.addEventListener("click", handleOverlayClick);
 overlayAdd.addEventListener("click", handleOverlayClick);
 overlayImage.addEventListener("click", handleOverlayClick);
 document.addEventListener("keydown", closeWithEsc);
-

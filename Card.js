@@ -4,11 +4,10 @@ export default class Card {
   constructor(title, link) {
     this.title= title;
     this.link= link;
-    this.card= this.templateCard();
+    this.card= this.getTemplate());
   }
-  templateCard() {
-    return template.cloneNode(true).content.querySelector(".template-card");
-
+  getTemplate() {
+    return template.cloneNode(true).content.querySelector(".template-card"); //---.element
   }
   setProperties() {
     this.cardImage = this.card.querySelector(".card__photo");
@@ -16,8 +15,19 @@ export default class Card {
     this.likeButton = this.card.querySelector(".card__like-button");
     this.deleteButton = this.card.querySelector(".card__delete-button");
     this.cardImage.src = this.link;
-    this.cardImage.textContent = this.name;
+    this.cardTitle.textContent = this.name;
   }
-  cardGenerator() {
-    return this.card;
+  handleLike() {
+    this.likeButton.classList.toggle("element__photo-heart_active");
   }
+  handleRemoveCard() {
+    this.card.remove();
+  }
+  setEventListeners() {
+    this.likeButton.addEventListener("click", () => {
+      this.handleLike();
+    });
+  }
+  this.deleteButton.addEventListener("click", () => {
+    this.handleRemoveCard();
+  });

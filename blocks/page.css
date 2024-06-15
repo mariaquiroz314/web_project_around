@@ -1,12 +1,27 @@
-html {
-    margin: 0;
-    font-family: "Inter", Arial, sans-serif;
-    background-color: #000000;
-    color: #ffffff;
-    text-rendering: optimizeLegibility;
-  }
-  
+.page {
+  max-width: 2560px;
+  background-color: #000;
+  color: #fff;
+}
+
+@media screen and (max-width: 320px) {
   .page {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    max-width: 880px;
   }
+}
+
+@media screen and (max-width: 425px) {
+  .page {
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

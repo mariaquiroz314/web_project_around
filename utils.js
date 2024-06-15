@@ -58,4 +58,4 @@ export let initialProfileAbout = profileAbout;
 //Overlays
 export const overlayEdit = document.querySelector("#popup-overlay-edit");
 export const overlayAdd = document.querySelector("#popup-overlay-add");
-export const overlayImage = document.querySelector("#popup-overlay-image");
+export const overlay

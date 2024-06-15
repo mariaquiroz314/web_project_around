@@ -14,119 +14,138 @@
     <div class="page">
       <header class="header">
         <img
-          src="./images/logo.png"
-          alt="Around The U.S. logo"
+          src="./images/logo.p"
+          alt="logo de Around The U.S."
           class="header__logo"
         />
       </header>
-      <main class="content">
+      <main class="main">
         <section class="profile">
           <img
             src="./images/Avatar.jpg"
-            alt="imagen avatar"
+            alt="profile Avatar"
             class="profile__avatar"
           />
           <div class="profile__info">
-            <div class="profile__container">
-              <h1 class="profile__name">Jacques Cousteau</h1>
-              <button class="profile__edit-button"></button>
-            </div>
-            <p class="profile__about">Explorador</p>
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <h2 class="profile__job">Explorador</h2>
           </div>
-          <button class="profile__add-button"></button>
+          <div class="profile__edit-button">
+            <img src="./images/EditButton.png" alt="edit button" />
+          </div>
+          <div class="profile__add-button">
+            <img src="./images/AddButton.png" alt="add button" />
+          </div>
         </section>
-        <div class="cards"></div>
-      </main>
-      <footer class="footer">&copy; 2024. Alejandra Quiroz</footer>
-      <!-----------POPUP EDITAR PERFIL--------------->
-      <section class="popup" id="edit-profile-popup">
-        <div class="popup__overlay" id="popup-overlay-edit"></div>
-        <div class="popup__container" id="popup-edit">
-          <form class="popup__form" novalidate>
-            <button class="popup__close-button"></button>
-            <h2 class="popup__title">Editar Perfil</h2>
-            <input
-              class="popup__input popup__input_name"
-              type="text"
-              id="popup__input_name"
-              minlength="2"
-              maxlength="40"
-              placeholder="Name"
-              required
-            />
-            <span class="popup__error" id="popup__input_name-error"></span>
-            <p></p>
-            <input
-              class="popup__input popup__input_about"
-              type="text"
-              id="popup__input_about"
-              minlength="2"
-              maxlength="200"
-              placeholder="Profession"
-              required
-            />
-            <span class="popup__error" id="popup__input_about-error"></span>
-            <button class="popup__save-button" type="submit">Save</button>
-          </form>
-        </div>
-      </section>
-      <!-----------POPUP AGREGAR IMAGENES--------------->
-      <section class="popup" id="add-image-popup">
-        <div class="popup__overlay" id="popup-overlay-add"></div>
-        <div class="popup__container" id="popup-add">
-          <form class="popup__form" novalidate>
-            <button
-              class="popup__close-button"
-              id="popup__close-button-card"
-            ></button>
-            <h2 class="popup__title">Nuevo lugar</h2>
-            <input
-              class="popup__input popup__input_title"
-              type="text"
-              id="popup__input_title"
-              minlength="2"
-              maxlength="30"
-              placeholder="Titulo"
-              required
-            />
-            <span class="popup__error" id="popup__input_title-error"></span>
-            <input
-              class="popup__input popup__input_about"
-              type="url"
-              id="popup__input_image"
-              minlength="2"
-              placeholder="Enlace a la imagen"
-              required
-            />
-            <span class="popup__error" id="popup__input_image-error"></span>
-            <button class="popup__save-button" type="submit">Create</button>
-          </form>
-        </div>
-      </section>
-      <!-----------TEMPLATE--------------->
-      <template class="template-card">
-        <div class="card">
-          <img class="card__photo" />
-          <div class="card__info">
-            <p class="card__info-name"></p>
-            <button class="card__like-button"></button>
-            <button class="card__delete-button"></button>
+        <section class="elements"></section>
+        <template class="elements__template">
+          <div class="elements__card">
+            <div class="elements__container">
+              <img src="." alt="" class="elements__image" />
+
+              <img
+                src="./images/Trash.png"
+                alt="button Trash"
+                class="elements__trash"
+              />
+            </div>
+            <div class="elements__rectangle">
+              <p class="elements__title"></p>
+              <img
+                src="./images/Rectangle.png"
+                alt="button heart"
+                class="elements__heart"
+              />
+            </div>
           </div>
-        </div>
-      </template>
-      <!-----------POPUP IMAGES--------------->
-      <div class="popup" id="popup_image-open">
-        <div class="popup__overlay" id="popup-overlay-image"></div>
+        </template>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2024 Anderson Diaz</p>
+      </footer>
+
+      <div class="popup" id="popupaddprofile">
+        <form class="popup__container" id="profilesave" novalidate>
+          <img
+            src="./images/CloseIcon.png"
+            alt="close icon"
+            class="popup__close"
+          />
+          <h2 class="popup__title">Editar perfil</h2>
+          <input
+            type="text"
+            name="name"
+            class="popup__imput"
+            placeholder="Nombre"
+            id="input-name"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span class="popup__error-visible input-name-error"></span>
+
+          <input
+            type="text"
+            name="aboutMe"
+            class="popup__imput"
+            placeholder="Acerca de mi"
+            id="input-about"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <span class="popup__error-visible input-about-error"></span>
+          <button class="popup__button">Crear</button>
+        </form>
+      </div>
+      <div class="popup" id="popupaddimage">
+        <form class="popup__container" id="cardsave" novalidate>
+          <img
+            src="./images/CloseIcon.png"
+            alt="close icon"
+            class="popup__close"
+            id="closecard"
+            required
+          />
+          <h2 class="popup__title">Nuevo lugar</h2>
+          <input
+            type="text"
+            name="title"
+            class="popup__imput"
+            placeholder="Titulo"
+            id="input-title"
+            minlength="2"
+            maxlength="30"
+            required
+          />
+          <span class="popup__error-visible input-title-error"></span>
+          <input
+            type="url"
+            name="url"
+            class="popup__imput"
+            placeholder="Enlace a la imagen (URL)"
+            id="input-image"
+            minlength="4"
+            required
+          />
+          <span class="popup__error-visible input-image-error"></span>
+          <button class="popup__button" id="formCreateBtn">Crear</button>
+        </form>
+      </div>
+      <div class="popup" id="popupimageopen">
+        <div class="popup__overlay"></div>
         <div class="popup__content-image">
-          <button
-            class="popup__close-button-image"
-            id="popup__close-image"
-          ></button>
+          <img
+            src="./images/CloseIcon.png"
+            alt="close icon"
+            class="popup__close"
+            id="closeimage"
+          />
           <img class="popup__image" src="." alt="" />
           <h2 class="popup__image-title"></h2>
         </div>
       </div>
     </div>
-    <script type="module" src="./script/script.js"></script>
+    <script src="./script/script.js" type="module"></script>
   </body>
 </html>
