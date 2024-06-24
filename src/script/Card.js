@@ -1,5 +1,5 @@
 import { template } from "./utils.js";
-import { openImagePopup } from "./script.js";
+import { openImagePopup } from "./index.js";
 
 export class Card {
   constructor(name, link) {
