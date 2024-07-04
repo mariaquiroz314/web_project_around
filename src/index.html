@@ -14,158 +14,130 @@
     <div class="page">
       <header class="header">
         <img
+          alt="Logo de Alredero de EE.UU."
           class="header__logo"
-          src="<%=require('./images/logo.png')%>"
-          alt="Alrededor de los Estados Unidos"
+          id="header-logo"
         />
       </header>
-      <main class="content">
-        <section class="profile">
-          <img
-            class="profile__avatar"
-            src="<%=require('./images/Avatar.jpg')%>"
-            alt="Imagen Jacques Cousteau"
-          />
+      <main>
+        <section id="profile" class="profile">
+          <div class="profile__avatar-circle">
+            <figure class="profile__avatar"></figure>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__name">Jacques Costeau</h1>
-            <button class="profile__edit-button" type="button">
-              <img
-                src="<%=require('./images/EditButton.png')%>"
-                alt="button-edit"
-              />
-            </button>
-            <p class="profile__about">Explorador</p>
-          </div>
-          <button class="profile__add-button" type="button">
-            <img
-              src="<%=require('./images/AddButton.png')%>"
-              alt="add-button"
-            />
-          </button>
-        </section>
-
-        <div class="popup" id="popup-profile">
-          <form class="popup__form" id="form-profile">
-            <img
-              class="popup__close-icon"
-              src="<%=require('./images/CloseIcon.png')%>"
-              alt="boton de cerrar form"
-              id="close-profile-form"
-            />
-            <h2 class="popup__title">Editar Perfil</h2>
-            <input
-              class="popup__input"
-              type="text"
-              name="name"
-              id="input-name"
-              minlength="2"
-              maxlength="40"
-              value=""
-              placeholder="Nombre"
-              required
-            />
-            <span class="popup__input-error input-name-error"></span>
-            <input
-              class="popup__input"
-              type="text"
-              name="job"
-              id="input-about"
-              minlength="2"
-              maxlength="200"
-              value=""
-              placeholder="Acerca de mi"
-              required
-            />
-            <span class="popup__input-error input-about-error"></span>
-            <button
-              class="popup__button-save"
-              type="submit"
-              id="profile-button-save"
-            >
-              Guardar
-            </button>
-          </form>
-        </div>
-
-        <div class="popup" id="popup-card">
-          <form class="popup__form" id="form-card">
-            <img
-              class="popup__close-icon"
-              src="<%=require('./images/CloseIcon.png')%>"
-              alt="close button"
-              id="close-card-form"
-            />
-            <h2 class="popup__title">Nuevo lugar</h2>
-            <input
-              class="popup__input"
-              id="input-card"
-              type="text"
-              name="title"
-              minlength="2"
-              maxlength="30"
-              value=""
-              placeholder="Título"
-              required
-            />
-            <span class="popup__input-error input-card-error"></span>
-            <input
-              class="popup__input"
-              type="url"
-              name="link"
-              id="input-link"
-              value=""
-              placeholder="Enlace de la imagen"
-              required
-            />
-            <span class="popup__input-error input-link-error"></span>
-            <button class="popup__button-save" type="submit" id="close-card">
-              Crear
-            </button>
-          </form>
-        </div>
-        <div class="elements"></div>
-
-        <section class="popup" id="popup-image">
-          <div class="popup__image-container" id="popup-show-image">
-            <img
-              class="popup__image-full"
-              id="popup-image-full"
-              src=" "
-              alt=" "
-            />
-            <span class="popup__image-title" id="popup-image-title"></span>
-            <img
-              alt="button close image"
-              src="<%=require('./images/CloseIcon.png')%>"
-              class="popup__image-close"
-              id="close-popup-image"
-            />
-          </div>
-        </section>
-
-        <template class="template__card">
-          <div class="element">
-            <div class="element__card">
-              <img class="element__image" id="image" src=" " alt=" " />
-              <h3 class="element__text"></h3>
-              <img
-                class="element__like-button"
-                alt="boton de me gusta"
-                src="<%=require('./images/heart.png')%>"
-              />
-              <img
-                class="element__delete-button"
-                alt=" boton de borrar"
-                src="<%=require('./images/Trash.png')%>"
-              />
+            <div class="profile__name-button">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button type="button" class="profile__edit-button"></button>
             </div>
+            <p class="profile__about-me">Explorer</p>
           </div>
-        </template>
-      </main>
 
-      <footer class="footer">
-        <h3 class="footer__copyright">© 2024 Alejandra Quiroz</h3>
-      </footer>
+          <button type="button" class="profile__add-button"></button>
+        </section>
+        <section id="elements" class="elements">
+          <template id="template-elements">
+            <div class="element">
+              <button type="button" class="element__button-trash"></button>
+              <img class="element__image" src=" " alt=" " />
+              <p class="element__title"></p>
+              <button type="button" class="element__button-like"></button>
+            </div>
+          </template>
+        </section>
+        <div id="cover"></div>
+        <section id="popup-profile" class="popup">
+          <button
+            type="button"
+            id="button__close-profile"
+            class="popup__button-close"
+          ></button>
+          <form id="form-profile" class="popup form" novalidate>
+            <h1 class="form__title">Edit Profile</h1>
+            <fieldset class="form__fieldset">
+              <input
+                type="text"
+                class="form__input"
+                name="name"
+                id="profile-name"
+                placeholder="Nombre"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span id="profile-name-error" class="form__error-visible"></span>
+              <input
+                type="text"
+                class="form__input"
+                name="aboutme"
+                id="profile-aboutme"
+                placeholder="Acerca de mi"
+                required
+                minlength="2"
+                maxlength="200"
+              />
+              <span
+                id="profile-aboutme-error"
+                class="form__error-visible"
+              ></span>
+              <button
+                type="submit"
+                class="form__button form__button-save"
+              ></button>
+            </fieldset>
+          </form>
+        </section>
+        <section id="popup-addimage" class="popup">
+          <button
+            type="button"
+            id="button__close-addimage"
+            class="popup__button-close"
+          ></button>
+          <form id="form-addimage" class="popup form" novalidate>
+            <h1 class="form__title">Nuevo Lugar</h1>
+            <fieldset class="form__fieldset">
+              <input
+                type="text"
+                class="form__input"
+                name="place"
+                id="addimage-name"
+                placeholder="Titulo"
+                required
+                minlength="2"
+                maxlength="30"
+              />
+              <span id="addimage-name-error" class="form__error-visible"></span>
+
+              <input
+                type="url"
+                class="form__input"
+                name="url"
+                id="addimage-link"
+                placeholder="Enlace a la imagen"
+                required
+              />
+              <span id="addimage-link-error" class="form__error-visible"></span>
+              <button
+                type="submit"
+                class="form__button form__button-addimage"
+              ></button>
+            </fieldset>
+          </form>
+        </section>
+
+        <section id="popup-imagen" class="popup-imagen">
+          <button
+            type="button"
+            id="button__close-showimage"
+            class="popup-imagen__button-close"
+          ></button>
+          <img class="popup-imagen__review" src=" " alt="" />
+          <p class="popup-imagen__subtitle"></p>
+        </section>
+        <footer class="footer">
+          <p class="footer__copyright">&#169; 2024 Alejandra Quiroz</p>
+        </footer>
+      </main>
     </div>
+    <script src= "./index.js" type="module"></script>
   </body>
 </html>

@@ -1,15 +1,23 @@
 import Popup from "./Popup.js";
+import { closeShowImageButton } from "../script/utils.js";
 
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
-    this._image = this._popupElement.querySelector("#popup-image-full");
-    this._title = this._popupElement.querySelector("#popup-image-title");
+    this.handleCardClick = this.handleCardClick.bind(this);
   }
-
-  open(name, link) {
+  handleCardClick(name, link) {
+    this._showImage = document.querySelector(".popup-imagen__review");
+    this._showSubtitle = document.querySelector(".popup-imagen__subtitle");
+    this._showImage.alt = `Fotografia de ${name}`;
+    this._showImage.src = link;
+    this._showSubtitle.textContent = name;
     super.open();
-    this._image.src = link;
-    this._title.textContent = name;
+  }
+  close() {
+    super.close();
+  }
+  setEventListeners() {
+    super.setEventListeners();
   }
 }

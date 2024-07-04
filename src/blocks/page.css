@@ -1,7 +1,16 @@
-.page {
-    background: #000000;
-    margin: auto;
-    min-width: 320px;
-    max-width: 882px;
-    width: 100vw;
+body {
+    background-color: black;
+  }
+  
+  .page {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #000;
+    margin: 0 auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }

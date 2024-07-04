@@ -1,31 +1,36 @@
+import { closeFormButton, closeShowImageButton } from "../script/utils";
 export default class Popup {
-    constructor(popupSelector) {
-      this._popupElement = document.querySelector(popupSelector);
-      this._handleEscClose = this._handleEscClose.bind(this);
-    }
-  
-    open() {
-      this._popupElement.classList.add("popup_show");
-      document.addEventListener("keydown", this._handleEscClose);
-    }
-  
-    close() {
-      this._popupElement.classList.remove("popup_show");
-      this._popupElement.classList.remove("popup__image_show");
-      document.removeEventListener("keydown", this._handleEscClose);
-    }
-  
-    _handleEscClose(evt) {
-      if (evt.key === "Escape") {
-        this.close();
-      }
-    }
-  
-    setEventListeners() {
-      this._popupElement.addEventListener("click", (evt) => {
-        if (evt.target === this._popupElement) {
-          this.close();
-        }
-      });
+  constructor(popupSelector) {
+    this._popupElement = document.querySelector(popupSelector);
+    this._overlay = document.querySelector("#cover");
+  }
+  open() {
+    this._popupElement.classList.add("popup-show");
+    this._overlay.classList.add("popup__overlay");
+  }
+  close() {
+    this._popupElement.classList.remove("popup-show");
+    this._overlay.classList.remove("popup__overlay");
+  }
+  _handleEscClose(evt) {
+    if (evt.key === "Escape") {
+      this.close();
     }
   }
+  setEventListeners() {
+    this._overlay.addEventListener("click", () => {
+      this.close();
+    });
+    closeFormButton.forEach((closeButton) => {
+      closeButton.addEventListener("click", () => {
+        this.close();
+      });
+    });
+    closeShowImageButton.addEventListener("click", () => {
+      this.close();
+    });
+    document.addEventListener("keydown", (evt) => {
+      this._handleEscClose(evt);
+    });
+  }
+}
