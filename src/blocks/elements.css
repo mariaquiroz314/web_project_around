@@ -1,0 +1,95 @@
+.elements {
+    display: grid;
+    max-width: 882px;
+    padding-top: 50px;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 18px;
+  }
+  
+  .element__card {
+    position: relative;
+    background-color: #ffff;
+    width: 282px;
+    height: 361px;
+    box-shadow: 0px 0px 25px 0px #00000026;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .element__image {
+    width: 282px;
+    height: 282px;
+    background-color: black;
+  }
+  
+  .element__text {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29.05px;
+    margin: 25px 0 0 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #000;
+  }
+  
+  .element__like-button {
+    position: absolute;
+    right: 11px;
+    bottom: 25px;
+    width: 22px;
+    height: 19px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #ffff;
+  }
+  
+  .element__like-button:hover {
+    opacity: 0.6;
+  }
+  
+  .element__like-button_active {
+    background-image: url(../images/Union.png);
+  }
+  
+  .element__delete-button {
+    background-image: url(../images/Trash.png);
+    position: absolute;
+    width: 24px;
+    height: 22px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+    top: 18px;
+    left: 247px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+  
+  .element__delete-button:hover {
+    opacity: 0.6;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .elements {
+      justify-content: center;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .elements {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      gap: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .element__card {
+      margin: auto;
+    }
+  }
