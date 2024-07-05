@@ -1,4 +1,4 @@
-import { popupOpenImage, closeShowImageButton } from "./utils.js";
+import {popupOpenImage, closeShowImageButton} from "./utils";
 export default class Card {
   constructor(name, link, handleCardClick) {
     this._name = name;

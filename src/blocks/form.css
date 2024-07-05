@@ -65,7 +65,7 @@
     padding: 0;
   }
   .form__button-save {
-    background-image: url(../images/EditButton.png);
+    background-image: url(../images/submitButton.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
